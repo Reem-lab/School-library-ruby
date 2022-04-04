@@ -12,4 +12,4 @@ class Student < Person
 end
 
 student1 = Student.new(2, "nor", 23, true, 7)
-puts student1.play_hooky
+student1.play_hooky

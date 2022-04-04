@@ -12,4 +12,3 @@ class Teacher
 end
 
 teacher1 = Teacher.new(5, "mohamed", 28, true, "chenistry")
-puts teacher1.can_use_services

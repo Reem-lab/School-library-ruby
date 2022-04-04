@@ -31,4 +31,3 @@ class Person
 end
 
 person1 = Person.new(1, 22, "Reem", true)
-puts person1.can_use_services
