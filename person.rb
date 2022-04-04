@@ -9,16 +9,16 @@ class Person
   attr_reader :id
   attr_accessor :name, :age
 
-  def can_use_services?
-    return true if @parent_permission == true || of_age?
+  def of_age?
+    return true if @age.to_i >= 18
 
     false
   end
-  
-  private
 
-  def of_age?
-    return true if @age.to_i >= 18
+  private :of_age?
+
+  def can_use_services?
+    return true if @parent_permission == true || of_age?
 
     false
   end
