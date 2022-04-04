@@ -6,7 +6,8 @@ class Person
     @parent_permission = parent_permission
   end
 
-  attr_accessor :id, :name, :age
+  attr_reader :id
+  attr_accessor :name, :age
 
   private
 
