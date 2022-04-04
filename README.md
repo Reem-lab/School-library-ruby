@@ -3,7 +3,7 @@
 
 ## School-library-ruby
 
-> In this project I made class person and clarify inheritance to some classes.
+> This is a  school library app so it contains all the student that can borrow a book or more and all the teachers with specific specializtion.
 
 
 ### Requirements
