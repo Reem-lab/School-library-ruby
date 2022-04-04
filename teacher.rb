@@ -11,4 +11,4 @@ class Teacher
   end
 end
 
-teacher1 = Teacher.new(5, "mohamed", 28, true, "chenistry")
+# teacher1 = Teacher.new(5, 'mohamed', 28, true, 'chenistry')

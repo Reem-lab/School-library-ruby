@@ -30,4 +30,4 @@ class Person
   end
 end
 
-person1 = Person.new(1, 22, "Reem", true)
+# person1 = Person.new(1, 22, "Reem", true)
