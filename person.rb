@@ -1,5 +1,4 @@
 require_relative './decorateor'
-require_relative './rental'
 
 class Person < Nameable
   attr_reader :id
@@ -18,8 +17,9 @@ class Person < Nameable
     @name
   end
 
-  def add_rental(date, book)
-    Rental.new(date, book, self)
+  def add_rental(book, _date)
+    @rentals.push(book)
+    rentals.person = self
   end
 
   def of_age?
