@@ -37,9 +37,9 @@ class Person < Nameable
   end
 end
 
-person1 = Person.new(22, 'maximilianus')
-puts person1.correct_name
-capitalized_person = CapitalizeDecorator.new(person1)
-puts capitalized_person.correct_name
-capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
-puts capitalized_trimmed_person.correct_name
+# person1 = Person.new(22, 'maximilianus')
+# puts person1.correct_name
+# capitalized_person = CapitalizeDecorator.new(person1)
+# puts capitalized_person.correct_name
+# capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
+# puts capitalized_trimmed_person.correct_name
