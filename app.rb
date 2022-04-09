@@ -23,6 +23,25 @@ class App
     @rentals = []
   end
 
+  def select_opt
+    loop do
+      print_question
+      option = gets.chomp
+      option = option.to_i
+      case option
+      when 1 then list_books
+      when 2 then list_people
+      when 3 then create_person
+      when 4 then create_book
+      when 5 then create_rental
+      when 6 then list_rentals
+      when 7 then break
+      else
+        puts 'Invalid number, please try again!'
+      end
+    end
+  end
+
   def create_person
     print 'Do you want to create a student (1) or a teacher (2)? [input the number]'
     num = gets.chomp
@@ -55,14 +74,14 @@ class App
   end
 
   def list_people
-    @person.each do |per|
-      puts "[#{per.class}] Name: #{per.name}, ID: #{per.id}, Age: #{per.age}"
+    @person.each do |per, index = 0|
+      puts "No: #{index}, [#{per.class}] Name: #{per.name}, ID: #{per.id}, Age: #{per.age}"
     end
   end
 
   def list_books
-    @books.each do |book|
-      puts "Title: #{book.title}, Author: #{book.author}"
+    @books.each do |book, index = 0|
+      puts "No: #{index}, Title: #{book.title}, Author: #{book.author}"
     end
   end
 
@@ -104,25 +123,6 @@ class App
     puts 'Rentals'
     @rentals.each do |rental|
       puts "Date: #{rental.date} Book: #{rental.book.title} by #{rental.book.author} " if rental.person.id == id_person
-    end
-  end
-
-  def select_opt
-    loop do
-      print_question
-      option = gets.chomp
-      option = option.to_i
-      case option
-      when 1 then list_books
-      when 2 then list_people
-      when 3 then create_person
-      when 4 then create_book
-      when 5 then create_rental
-      when 6 then list_rentals
-      when 7 then break
-      else
-        puts 'Invalid number, please try again!'
-      end
     end
   end
 end
