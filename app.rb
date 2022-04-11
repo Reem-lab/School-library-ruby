@@ -74,14 +74,14 @@ class App
   end
 
   def list_people
-    @person.each do |per, index = 0|
-      puts "No: #{index}, [#{per.class}] Name: #{per.name}, ID: #{per.id}, Age: #{per.age}"
+    @person.each do |per|
+      puts "[#{per.class}] Name: #{per.name}, ID: #{per.id}, Age: #{per.age}"
     end
   end
 
   def list_books
-    @books.each do |book, index = 0|
-      puts "No: #{index}, Title: #{book.title}, Author: #{book.author}"
+    @books.each do |book|
+      puts "Title: #{book.title}, Author: #{book.author}"
     end
   end
 
@@ -99,12 +99,16 @@ class App
 
   def create_rental
     puts 'Select a book from the following list by number '
-    list_books
+    @books.each_with_index do |book, index|
+      puts "#{index}) Title: #{book.title}, Author: #{book.author}"
+    end
     book_num = gets.chomp
     book_num = book_num.to_i
 
     puts 'Select a person from the following list by number (not id)'
-    list_people
+    @person.each_with_index do |per, index|
+      puts "No: #{index}, [#{per.class}] Name: #{per.name}, ID: #{per.id}, Age: #{per.age}"
+    end
     person_num = gets.chomp
     person_num = person_num.to_i
 
