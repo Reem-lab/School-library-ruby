@@ -3,10 +3,10 @@ require_relative './student'
 require_relative './teacher'
 require_relative './book'
 require_relative './rental'
-require_relative './checkers/check_age'
+require_relative './checks'
 
 class App
-  include CheckAge
+  include Checks
 
   def initialize
     @books = []
@@ -15,8 +15,7 @@ class App
   end
 
   def select_opt
-    option = gets.chomp
-    option = option.to_i
+    option = check_options('', (1..7))
     case option
     when 1 then list_books
     when 2 then list_people
@@ -31,11 +30,9 @@ class App
   end
 
   def create_person
-    print 'Do you want to create a student (1) or a teacher (2)? [input the number]'
-    num = gets.chomp
-    num = num.to_i
+    num = check_options('Do you want to create a student (1) or a teacher (2)? [input the number]: ', [1, 2])
 
-    age = check_age
+    age = check_number('Age:')
 
     print 'Name:'
     name = gets.chomp
