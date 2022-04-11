@@ -3,19 +3,10 @@ require_relative './student'
 require_relative './teacher'
 require_relative './book'
 require_relative './rental'
+require_relative './checks'
 
 class App
-  def print_question
-    puts 'Welcome to School library App! 🎉'
-    puts "Please choose an option by enterin a number:
-      1- List all books.
-      2- List all people.
-      3- Create a person.
-      4- Create a book.
-      5- Create a rental.
-      6- List all rentals for a given person id.
-      7- Exit."
-  end
+  include Checks
 
   def initialize
     @books = []
@@ -24,32 +15,24 @@ class App
   end
 
   def select_opt
-    loop do
-      print_question
-      option = gets.chomp
-      option = option.to_i
-      case option
-      when 1 then list_books
-      when 2 then list_people
-      when 3 then create_person
-      when 4 then create_book
-      when 5 then create_rental
-      when 6 then list_rentals
-      when 7 then break
-      else
-        puts 'Invalid number, please try again!'
-      end
+    option = check_options('', (1..7))
+    case option
+    when 1 then list_books
+    when 2 then list_people
+    when 3 then create_person
+    when 4 then create_book
+    when 5 then create_rental
+    when 6 then list_rentals
+    when 7 then 7
+    else
+      puts 'Invalid number, please try again!'
     end
   end
 
   def create_person
-    print 'Do you want to create a student (1) or a teacher (2)? [input the number]'
-    num = gets.chomp
-    num = num.to_i
+    num = check_options('Do you want to create a student (1) or a teacher (2)? [input the number]: ', [1, 2])
 
-    print 'age:'
-    age = gets.chomp
-    age = age.to_i
+    age = check_number('Age:')
 
     print 'Name:'
     name = gets.chomp
@@ -100,22 +83,20 @@ class App
   def create_rental
     puts 'Select a book from the following list by number '
     @books.each_with_index do |book, index|
-      puts "#{index}) Title: #{book.title}, Author: #{book.author}"
+      puts "#{index + 1}) Title: #{book.title}, Author: #{book.author}"
     end
-    book_num = gets.chomp
-    book_num = book_num.to_i
+    book_num = check_options('', (1..@books.length + 1))
 
     puts 'Select a person from the following list by number (not id)'
     @person.each_with_index do |per, index|
-      puts "No: #{index}, [#{per.class}] Name: #{per.name}, ID: #{per.id}, Age: #{per.age}"
+      puts "No: #{index + 1}, [#{per.class}] Name: #{per.name}, ID: #{per.id}, Age: #{per.age}"
     end
-    person_num = gets.chomp
-    person_num = person_num.to_i
+    person_num = check_options('', (1..@person.length + 1))
 
     print 'Date:'
     date = gets.chomp
 
-    @rentals.push(Rental.new(date, @person[person_num], @books[book_num]))
+    @rentals.push(Rental.new(date, @person[person_num - 1], @books[book_num - 1]))
     puts 'Rental Created successfully 🎉🎉 '
   end
 
@@ -126,7 +107,7 @@ class App
 
     puts 'Rentals'
     @rentals.each do |rental|
-      puts "Date: #{rental.date} Book: #{rental.book.title} by #{rental.book.author} " if rental.person.id == id_person
+      puts "Date: #{rental.date} Book: #{rental.book.title} by #{rental.book.author}" if rental.person.id == id_person
     end
   end
 end

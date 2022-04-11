@@ -23,7 +23,8 @@ GEM
     unicode-display_width (2.1.0)
 
 PLATFORMS
-  x64-mingw-ucrt
+  x64-unknown
+  x86_64-linux
 
 DEPENDENCIES
   rubocop (>= 1.0, < 2.0)

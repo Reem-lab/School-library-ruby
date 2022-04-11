@@ -43,6 +43,14 @@ $ ruby teacher.rb
  **Twitter** | [Rem79940127](https://twitter.com/Rem79940127)
  **LinkdIn** | [reem-janina](https://www.linkedin.com/in/reem-janina-ab74ab21a/)
 
+ 👤 **Eduardo Sancho Solano**
+
+ Platform | Badge |
+ --- | --- |
+ **GitHub**  | [@eduardosancho](https://github.com/eduardosancho)
+ **Twitter** | [@sanchitoblog](https://twitter.com/sanchitoblog)
+ **LinkdIn** | [Eduardo Sancho Solano](https://www.linkedin.com/in/eduardo-sancho-solano/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
