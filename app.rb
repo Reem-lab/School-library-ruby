@@ -5,17 +5,6 @@ require_relative './book'
 require_relative './rental'
 
 class App
-  def print_question
-    puts 'Welcome to School library App! 🎉'
-    puts "Please choose an option by enterin a number:
-      1- List all books.
-      2- List all people.
-      3- Create a person.
-      4- Create a book.
-      5- Create a rental.
-      6- List all rentals for a given person id.
-      7- Exit."
-  end
 
   def initialize
     @books = []
@@ -24,8 +13,6 @@ class App
   end
 
   def select_opt
-    loop do
-      print_question
       option = gets.chomp
       option = option.to_i
       case option
@@ -35,11 +22,10 @@ class App
       when 4 then create_book
       when 5 then create_rental
       when 6 then list_rentals
-      when 7 then break
+      when 7 then return 7
       else
         puts 'Invalid number, please try again!'
       end
-    end
   end
 
   def create_person
