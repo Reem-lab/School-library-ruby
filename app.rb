@@ -125,6 +125,28 @@ class App
   end
 
   def write_json
-    File.write('person.json', "#{Time.now} - User logged in\n")
+    current_state = []
+
+    obj = ''
+    @person.each do |per| 
+      per.instance_variables.each{ |var| 
+      temp = var.to_s.tr('@', '')
+      obj = [obj, "#{temp} : #{per.instance_variable_get(var).inspect },"].join("\n")
+      puts "#{temp} : #{per.instance_variable_get(var).inspect },"}
+    end
+    puts obj
+
+    json = JSON.generate(obj)
+    File.write('person.json', json)
   end
+
+  # def load_person
+  # end
+
+  # def grab_data(class_type)
+  #   case class_type
+  #   when person then 
+  #   when book then
+  #   when rental then
+  # end
 end

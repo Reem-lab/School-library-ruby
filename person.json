@@ -1,12 +1,1 @@
-[
-  { 
-    "age": 10, 
-    "name": "Eduardo", 
-    "parent_permission": true 
-  },
-  {
-    "age": 15,
-    "name": "Reem",
-    "parent_permission": true
-  }
-]
+[{\nid : 79,\nname : \"yy\",\nage : 45,\nparent_permission : true,\nrentals : [],\nclassroom : nil}]
