@@ -16,7 +16,7 @@ class App
   end
 
   def select_opt
-    option = check_options('', (1..8))
+    option = check_options('', (1..9))
     case option
     when 1 then list_books
     when 2 then list_people
@@ -26,6 +26,7 @@ class App
     when 6 then list_rentals
     when 7 then 7
     when 8 then read_json
+    when 9 then write_json
     else
       puts 'Invalid number, please try again!'
     end
@@ -118,7 +119,12 @@ class App
     file_data = file.read
     ready_data = JSON.parse(file_data)
     ready_data.each do |obj|
-      puts obj['name']
+      puts obj
     end
+    file.close
+  end
+
+  def write_json
+    File.write('person.json', "#{Time.now} - User logged in\n")
   end
 end
