@@ -4,6 +4,7 @@ require_relative './teacher'
 require_relative './book'
 require_relative './rental'
 require_relative './checks'
+require 'json'
 
 class App
   include Checks
@@ -15,7 +16,7 @@ class App
   end
 
   def select_opt
-    option = check_options('', (1..7))
+    option = check_options('', (1..8))
     case option
     when 1 then list_books
     when 2 then list_people
@@ -24,6 +25,7 @@ class App
     when 5 then create_rental
     when 6 then list_rentals
     when 7 then 7
+    when 8 then read_json
     else
       puts 'Invalid number, please try again!'
     end
@@ -108,6 +110,15 @@ class App
     puts 'Rentals'
     @rentals.each do |rental|
       puts "Date: #{rental.date} Book: #{rental.book.title} by #{rental.book.author}" if rental.person.id == id_person
+    end
+  end
+
+  def read_json
+    file = File.open('person.json')
+    file_data = file.read
+    ready_data = JSON.parse(file_data)
+    ready_data.each do |obj|
+      puts obj['name']
     end
   end
 end
