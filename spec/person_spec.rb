@@ -3,7 +3,7 @@ require_relative './spec_helper'
 describe Person do
 
   before :each do
-    @person = Person.new "age", "name", parent_permission: true , id: 42
+    @person = Person.new age = 24, "name", parent_permission: true , id: 42
 end
 
 describe "#new" do
@@ -14,7 +14,7 @@ end
 
 describe "#age" do
     it "returns the correct age" do
-        @person.age.should eql "age"
+        @person.age.should eql 24
     end
 end
 
