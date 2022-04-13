@@ -11,7 +11,7 @@ class App
 
   def initialize
     @books = []
-    @person = []
+    @person = load_persons
     @rentals = []
   end
 
@@ -25,7 +25,7 @@ class App
     when 5 then create_rental
     when 6 then list_rentals
     when 7 then 7
-    when 8 then read_json
+    when 8 then load_persons
     when 9 then write_json
     else
       puts 'Invalid number, please try again!'
@@ -114,16 +114,6 @@ class App
     end
   end
 
-  def read_json
-    file = File.open('person.json')
-    file_data = file.read
-    ready_data = JSON.parse(file_data)
-    ready_data.each do |obj|
-      puts obj
-    end
-    file.close
-  end
-
   def write_json
     persons = @person.each_with_index.map do |person, index|
       { class: person.class, age: person.age, name: person.name,
@@ -153,13 +143,20 @@ class App
     File.write('rentals.json', json_rentals)
   end
 
-  # def load_person
-  # end
-
-  # def grab_data(class_type)
-  #   case class_type
-  #   when person then
-  #   when book then
-  #   when rental then
-  # end
+  def load_persons
+    file = File.open('person.json')
+    persons_read = File.read(file)
+    persons_json = JSON.parse(persons_read)
+    loaded_persons = []
+    persons_json.each do |person|
+      case person['class']
+      when 'Teacher'
+        loaded_persons << Teacher.new(person['age'], person['specialization'], person['name'])
+      when 'Student'
+        loaded_persons << Student.new(person['age'], person['name'], parent_permission: person['parent_permission'])
+      end
+    end
+    file.close
+    loaded_persons
+  end
 end

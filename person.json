@@ -1,1 +1,1 @@
-[{"class":"Student","age":45,"name":"jk","specialization":null,"parent_permission":true,"index":0}]
+[{"class":"Student","age":12,"name":"ED","specialization":null,"parent_permission":"Y","index":0},{"class":"Student","age":23,"name":"Edu","specialization":null,"parent_permission":false,"index":1},{"class":"Teacher","age":34,"name":"reem","specialization":"fuaioeaws","parent_permission":true,"index":2}]
