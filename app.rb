@@ -125,19 +125,17 @@ class App
   end
 
   def write_json
-    current_state = []
-
-    obj = ''
-    @person.each do |per| 
-      per.instance_variables.each{ |var| 
-      temp = var.to_s.tr('@', '')
-      obj = [obj, "#{temp} : #{per.instance_variable_get(var).inspect },"].join("\n")
-      puts "#{temp} : #{per.instance_variable_get(var).inspect },"}
+    persons = @person.each_with_index.map do |person, index|
+      { 'class' => person.class, 'age' => person.age, 'name' => person.name,
+        'specialization' => (if person.instance_of?(Teacher)
+                               person.specialization end), parent_permission: person.parent_permission,
+        'index' => index }
     end
-    puts obj
 
-    json = JSON.generate(obj)
-    File.write('person.json', json)
+    puts persons
+
+    # json = JSON.generate(obj)
+    # File.write('person.json', json)
   end
 
   # def load_person
@@ -145,7 +143,7 @@ class App
 
   # def grab_data(class_type)
   #   case class_type
-  #   when person then 
+  #   when person then
   #   when book then
   #   when rental then
   # end
