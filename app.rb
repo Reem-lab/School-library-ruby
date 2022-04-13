@@ -126,9 +126,9 @@ class App
 
   def write_json
     persons = @person.each_with_index.map do |person, index|
-      { 'class': person.class, 'age': person.age, 'name': person.name,
-        'specialization': (person.specialization if person.instance_of?(Teacher)),
-        'parent_permission': person.parent_permission, 'index': index }
+      { class: person.class, age: person.age, name: person.name,
+        specialization: (person.specialization if person.instance_of?(Teacher)),
+        parent_permission: person.parent_permission, index: index }
     end
 
     json_person = JSON.generate(persons)
@@ -136,16 +136,16 @@ class App
 
     books = @books.each_with_index.map do |book, index|
       {
-        'title': book.title, 'author': book.author, 'index': index
-      } 
+        title: book.title, author: book.author, index: index
+      }
     end
     json_books = JSON.generate(books)
     File.write('books.json', json_books)
 
-    rentals = @rentals.each_with_index.map do |rental, index|
+    rentals = @rentals.each_with_index.map do |rental, _index|
       {
-        'date': rental.date, 'book_index': @books.index(rental.book),
-         'person_index': @person.index(rental.person)
+        date: rental.date, book_index: @books.index(rental.book),
+        person_index: @person.index(rental.person)
       }
     end
 
