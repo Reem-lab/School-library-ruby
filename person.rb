@@ -19,7 +19,7 @@ class Person < Nameable
 
   def add_rental(book, _date)
     @rentals.push(book)
-    rentals.person = self
+    book.rentals = self
   end
 
   def of_age?

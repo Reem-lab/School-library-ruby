@@ -9,7 +9,7 @@ class Student < Person
     @classroom = nil
   end
 
-  def classrooms
+  def classrooms(classroom)
     @classroom = classroom
     classroom.student.push(self) unless classroom.student.include?(self)
   end

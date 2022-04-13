@@ -11,7 +11,7 @@
 
 ## Built With
 
-- Languages: _**Ruby**_
+- Languages: _**Ruby, Test, RSpec, OOP**_
 - Frameworks: _**N/A**_
 - Technologies used: _**GIT, GITHUB, LINTERS**_
 
@@ -31,6 +31,11 @@ $ bundle install
 $ ruby person.rb
 $ ruby student.rb
 $ ruby teacher.rb
+```
+
+### To run the tests
+```bash
+$  rspec spec
 ```
 
 ## Authors
