@@ -6,7 +6,7 @@ describe Teacher do
   end
 
   describe '#new' do
-    it 'takes four parameters and returns a Teacher object' do
+    it 'takes five parameters and returns a Teacher object' do
       @teacher.should be_an_instance_of Teacher
     end
   end
