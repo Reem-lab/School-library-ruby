@@ -24,9 +24,8 @@ describe Rental do
   end
 
   describe '#book' do
-  it 'returns the correct book' do
-    @rental.book.should eql 'book'
+    it 'returns the correct book' do
+      @rental.book.should eql 'book'
+    end
   end
-end
-
 end
