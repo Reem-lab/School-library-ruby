@@ -24,4 +24,11 @@ describe "#author" do
     end
 end
 
+describe "Assign new book to person"
+it "accepts new books" do
+  person1 = Person.new(45, "Mark Boulton") 
+   @book.add_rental(person1, "12/5/2020")
+  expect(@book.rentals.include?person1).to eql true 
+end
+
 end
