@@ -127,15 +127,14 @@ class App
   def write_json
     persons = @person.each_with_index.map do |person, index|
       { 'class' => person.class, 'age' => person.age, 'name' => person.name,
-        'specialization' => (if person.instance_of?(Teacher)
-                               person.specialization end), parent_permission: person.parent_permission,
-        'index' => index }
+        'specialization' => (person.specialization if person.instance_of?(Teacher)),
+        'parent_permission' => person.parent_permission, 'index' => index }
     end
 
     puts persons
 
-    # json = JSON.generate(obj)
-    # File.write('person.json', json)
+    json = JSON.generate(persons)
+    File.write('person.json', json)
   end
 
   # def load_person

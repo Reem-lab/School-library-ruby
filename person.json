@@ -1,1 +1,1 @@
-[{\nid : 79,\nname : \"yy\",\nage : 45,\nparent_permission : true,\nrentals : [],\nclassroom : nil}]
+[{"class":"Teacher","age":23,"name":"reem","specialization":"science","parent_permission":true,"index":0},{"class":"Student","age":12,"name":"Edu","specialization":null,"parent_permission":false,"index":1}]
